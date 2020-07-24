@@ -20,4 +20,8 @@
     <ProjectReference Include="..\VesselPositionTracker.Application\VesselPositionTracker.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Voyage-Data-On-AWS-S3\" />
+  </ItemGroup>
+
 </Project>

@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VesselPositionTracker.Persi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VesselPositionCollectorService", "VesselPositionCollectorService\VesselPositionCollectorService.csproj", "{361378B0-362D-401B-A23E-9F206F94C4E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VesselPositionTracker.Api", "VesselPositionTracker.Api\VesselPositionTracker.Api.csproj", "{D41F3CE3-13E2-435A-A463-BB7621E69BB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VesselPositionTracker.Api", "VesselPositionTracker.Api\VesselPositionTracker.Api.csproj", "{D41F3CE3-13E2-435A-A463-BB7621E69BB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
