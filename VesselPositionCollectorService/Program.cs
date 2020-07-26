@@ -91,7 +91,7 @@ namespace VesselPositionCollectorService
 {"TimeStamp","TIMESTAMP"},
 {"ShipId","SHIP_ID"},
 {"WindAngle","WIND_ANGLE"},
-{"WindSpeed","WIND_SPEED"},
+{"WindSpeed","WindSPEED"},
 {"WindTemp","WIND_TEMP"}
 
 

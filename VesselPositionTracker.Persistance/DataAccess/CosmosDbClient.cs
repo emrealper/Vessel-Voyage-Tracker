@@ -73,6 +73,7 @@ namespace VesselPositionTracker.Persistance.DataAccess
                 PartitionKey = new PartitionKey(documents[0].ShipId),
                 EnableScriptLogging = true,
                 
+                
            };
             int pointer = 0;
 

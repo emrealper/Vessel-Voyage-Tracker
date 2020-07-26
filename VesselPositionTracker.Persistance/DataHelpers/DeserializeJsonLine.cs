@@ -33,10 +33,11 @@ namespace VesselPositionTracker.Persistance.DataHelpers
         }
 
 
-   
 
 
-    
+ 
+
+
 
 
         public E Serialize(string line)

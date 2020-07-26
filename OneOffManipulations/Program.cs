@@ -25,16 +25,24 @@ namespace OneOffManipuLATions
         static void Main(string[] args)
         {
 
-          
+
 
 
             Parallel.ForEach(fileService.GetJsonFiles(), (path) =>
             {
                 FixDateInJsonFile(path);
-                
+
             });
 
-          
+            //foreach (string path in fileService.GetJsonFiles())
+            //{
+
+            //    FixDateInJsonFile(path);
+            //}
+
+         
+
+
 
 
 
@@ -57,11 +65,11 @@ namespace OneOffManipuLATions
 {"Speed","SPEED"},
 {"Lon","LON"},
 {"LAT","LAT"},
-{"COURSE","COURSE"},
-{"HEADING","HEADING"},
-{"TIMESTAMP","TIMESTAMP"},
-{"SHIP_ID","SHIP_ID"},
-{"WIND_ANGLE","WIND_ANGLE"},
+{"Course","COURSE"},
+{"Heading","HEADING"},
+{"TimeStamp","TIMESTAMP"},
+{"ShipId","SHIP_ID"},
+{"WindAngle","WIND_ANGLE"},
 {"WindSpeed","WIND_SPEED"},
 {"WindTemp","WIND_TEMP"}
 
@@ -73,23 +81,36 @@ namespace OneOffManipuLATions
 
             int count = 0;
 
+            int mmsi = 0;
 
-  
-
+            StringBuilder jsonResult = new StringBuilder();
             foreach (string line in fileService.ReadLines(path))
             {
-                StringBuilder jsonResult = new StringBuilder();
+
+          
                 VesselHistory entity=  _deserializeJsonLine.Serialize(line);
+                
                 entity.TimeStamp = entity.TimeStamp.Value.AddSeconds(++count);
 
-                
+                if (mmsi == 0)
+                {
+                    mmsi = entity.Mmmsi +100;
 
-                jsonResult.Append(JsonConvert.SerializeObject(entity).Replace("\"Id\":null,", ""));
+                }
+
+                entity.Mmmsi += 100;
+                entity.ShipId += 100;
+                jsonResult.Append(JsonConvert.SerializeObject(entity).Replace("\"Id\":null,", "").
+                    Replace("Mmmsi", "MMSI").Replace("Status", "STATUS").Replace("Speed","SPEED")
+                    .Replace("Lon","LON").Replace("Course","COURSE").Replace("Heading","HEADING")
+                    .Replace("TimeStamp","TIMESTAMP").Replace("ShipId","SHIP_ID").Replace("WindAngle","WIND_ANGLE")
+                    .Replace("WindSpeed","WIND_SPEED").Replace("WindTemp","WIND_TEMP"));
                 jsonResult.Append(NewLine);
-
-                System.IO.File.AppendAllText(path.Replace(".json", "_new") + ".json", jsonResult.ToString());
+                
+               
             }
-     
+            System.IO.File.AppendAllText(@"D:\Projects\VesselPositionTracker\VesselPositionTracker.Persistance\Voyage-Data-On-AWS-S3\Vessel_" + mmsi.ToString() + "_Movements.json", jsonResult.ToString());
+
 
         }
 
