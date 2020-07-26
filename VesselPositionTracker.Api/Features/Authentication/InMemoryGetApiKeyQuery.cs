@@ -16,7 +16,8 @@ namespace VesselPositionTracker.Api.Features.Authentication
             {
               
                
-                new ApiKey(4, "Some Third Party", "UA872902-6396-46ZC-79F0-FX1BE900591B", new DateTime(2020,07,01),
+                //new ApiKey(4, "Some Third Party", "UA872902-6396-46ZC-79F0-FX1BE900591B", new DateTime(2020,07,01),
+                  new ApiKey(4, "Some Third Party", "1234", new DateTime(2020,07,01),
                     new List<string>
                     {
                         Roles.ThirdParty

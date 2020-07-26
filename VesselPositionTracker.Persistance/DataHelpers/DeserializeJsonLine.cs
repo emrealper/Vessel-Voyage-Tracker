@@ -42,10 +42,14 @@ namespace VesselPositionTracker.Persistance.DataHelpers
         public E Serialize(string line)
         {
 
+           
 
 
             return JsonConvert.DeserializeObject<E>(line, this._settings);
         }
+
+
+
 
         public E Serialize(string line,string dateFormat)
         {

@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 using VesselPositionTracker.Domain.Common;
 
 namespace VesselPositionTracker.Domain.Entities
 {
+  
     public class VesselHistory :IEntity, ICosmosEntity
     {
 
 
-        
+
         public String Id { get; set; }
         public int Mmmsi { get; set; }
         public int? Status { get; set; }

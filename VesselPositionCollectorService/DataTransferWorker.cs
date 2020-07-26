@@ -89,7 +89,7 @@ namespace VesselPositionCollectorService
                     }
                 }
                 
-             var result = await _vesselHistoryRepository.BatchUploadAsync(vesselMovements);
+              var result = await _vesselHistoryRepository.BatchUploadAsync(vesselMovements);
                 _logger.LogInformation($"{result} Number of historical data for " +
                     $"MMSI {path.Split('_')[1]} has been pushed to the Azure Commos Db");
 

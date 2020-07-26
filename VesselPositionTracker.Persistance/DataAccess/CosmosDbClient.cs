@@ -86,7 +86,7 @@ namespace VesselPositionTracker.Persistance.DataAccess
                 int count= await _documentClient.ExecuteStoredProcedureAsync<int>(
                 UriFactory.CreateStoredProcedureUri(_databaseName, _collectionName, "bulkUpload"),
                 requestOptions,
-                documents.Skip(pointer).Take(5000));
+                documents.Skip(pointer).Take(1000));
                 pointer += count;
             }
 
