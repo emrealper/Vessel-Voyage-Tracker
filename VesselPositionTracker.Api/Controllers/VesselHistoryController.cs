@@ -14,14 +14,15 @@ namespace VesselPositionTracker.Api.Controllers
 {
     public class VesselHistoryController : BaseController
     {
-        [HttpGet("{Begin}/{End}")]
+        [HttpGet("{Mmsi}/{Begin}/{End}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [Authorize(Policy = Policies.OnlyThirdParties)]
-        public async Task<ActionResult<VesselHistoryListVm>> GetAll(DateTime Begin, DateTime End)
+        public async Task<ActionResult<VesselHistoryListVm>> GetAll(int Mmsi,DateTime Begin, DateTime End)
         {
             return await Mediator.Send(new GetDateIntervalQuery
             {
+                Mmsi= Mmsi,
                 Begin = Begin,
                 End = End
             });

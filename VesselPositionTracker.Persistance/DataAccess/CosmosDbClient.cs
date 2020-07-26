@@ -41,7 +41,7 @@ namespace VesselPositionTracker.Persistance.DataAccess
 
             var option = new FeedOptions { EnableCrossPartitionQuery = true };
             return   _documentClient.CreateDocumentQuery<VesselHistory>(
-                UriFactory.CreateDocumentCollectionUri(_databaseName, _collectionName),option).Take(200);
+                UriFactory.CreateDocumentCollectionUri(_databaseName, _collectionName),query,option);
         }
 
 

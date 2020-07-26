@@ -31,13 +31,16 @@ namespace EcoDesignAPI.Application.Services.Product.Handlers
 
         public async Task<VesselHistoryListVm> Handle(GetDateIntervalQuery request, CancellationToken cancellationToken)
         {
-            var result = await _vesselHistoryRepository.ReadByQueryAsync("query");
+            var result = await _vesselHistoryRepository.ReadByQueryAsync(
+                $"SELECT * FROM c where c.mmmsi={request.Mmsi} and c.timeStamp>='{request.Begin.ToString("yyyy-MM-ddThh:mm:ss")}' and  c.timeStamp<='{request.End.ToString("yyyy-MM-ddThh:mm:ss")}'"
+                );
+
+            
 
 
 
-       
 
-            var vesselHistory= _mapper.Map<List<VesselHistoryDto>>(result);
+            var vesselHistory= _mapper.Map<List<VesselHistoryDto>>(result.ToList());
 
             var vm = new VesselHistoryListVm
             {

@@ -9,7 +9,8 @@ namespace TaskManagementApp.Application.Tasks.Validators
         {
           
             RuleFor(t => t.Begin).LessThanOrEqualTo(x=>x.End);
-            
+            RuleFor(t => t.Mmsi).Must(x => x > 99999999 && x < 1000000000);
+
 
         }
     }
