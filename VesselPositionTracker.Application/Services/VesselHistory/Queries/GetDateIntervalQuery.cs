@@ -2,7 +2,7 @@
 using System;
 using VesselPositionTracker.Application.Services.VesselHistory.ViewModel;
 
-namespace VesselPositionTracker.Application.Tasks.Queries
+namespace VesselPositionTracker.Application.Services.VesselHistory.Queries
 {
     public class GetDateIntervalQuery: IRequest<VesselHistoryListVm>
     {

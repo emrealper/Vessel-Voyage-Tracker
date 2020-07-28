@@ -13,7 +13,7 @@ using VesselPositionTracker.Application.Services.Vessel.Dto;
 using VesselPositionTracker.Application.Tasks.Queries;
 using VesselPositionTracker.Application.Services.Vessel.ViewModel;
 
-namespace EcoDesignAPI.Application.Services.Product.Handlers
+namespace VesselPositionTracker.Application.Services.Vessel.Handlers
 {
    public class GetAllVesselsQueryHandler : IRequestHandler<GetAllVesselsQuery, VesselListVm>
     {

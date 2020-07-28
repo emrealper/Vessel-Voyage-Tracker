@@ -7,7 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using VesselPositionTracker.Api.Features.Authorization;
 using VesselPositionTracker.Application.Services.Fleet.Commands;
 using VesselPositionTracker.Application.Services.Fleet.ViewModel;
-using VesselPositionTracker.Application.Tasks.Queries;
+using VesselPositionTracker.Application.Services.Queries;
+
 
 namespace VesselPositionTracker.Api.Controllers
 {

@@ -12,8 +12,9 @@ using VesselPositionTracker.Application.Services.VesselHistory.ViewModel;
 using VesselPositionTracker.Application.Common.Interfaces;
 using VesselPositionTracker.Application.Services.VesselHistory.Dto;
 using System.Linq;
+using VesselPositionTracker.Application.Services.VesselHistory.Queries;
 
-namespace EcoDesignAPI.Application.Services.Product.Handlers
+namespace VesselPositionTracker.Application.Services.VesselHistory.Handlers
 {
    public class GetDateIntervalQueryHandler : IRequestHandler<GetDateIntervalQuery, VesselHistoryListVm>
     {

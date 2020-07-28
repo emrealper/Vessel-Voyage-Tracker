@@ -2,7 +2,7 @@
 
 using VesselPositionTracker.Application.Services.Vessel.Commands;
 
-namespace TaskManagementApp.Application.Tasks.Validators
+namespace VesselPositionTracker.Application.Services.Vessel.Validators
 {
     public class CreateVesselCommandValidator: AbstractValidator<CreateVesselCommand>
     {

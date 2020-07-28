@@ -1,7 +1,8 @@
 ﻿using FluentValidation;
-using VesselPositionTracker.Application.Tasks.Queries;
+using VesselPositionTracker.Application.Services.VesselHistory.Queries;
 
-namespace TaskManagementApp.Application.Tasks.Validators
+
+namespace VesselPositionTracker.Application.Services.VesselHistory.Validators
 {
     public class GetDateIntervalQueryValidator : AbstractValidator<GetDateIntervalQuery>
     {

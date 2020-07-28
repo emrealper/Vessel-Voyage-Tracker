@@ -4,9 +4,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using VesselPositionTracker.Application.Common.Interfaces;
 using VesselPositionTracker.Application.Services.Vessel.Commands;
-using VesselPositionTracker.Domain.Entities;
 
-namespace TaskManagementApp.Application.Tasks.Handlers
+
+namespace VesselPositionTracker.Application.Services.Vessel.Handlers
 {
     public class CreateVesselCommandHandler : IRequestHandler<CreateVesselCommand, int>
     {
@@ -20,7 +20,7 @@ namespace TaskManagementApp.Application.Tasks.Handlers
         }
         public async Task<int> Handle(CreateVesselCommand request, CancellationToken cancellationToken)
         {
-            var result = await _unitOfWork.Vessels.Add(_mapper.Map<Vessel>(request));
+            var result = await _unitOfWork.Vessels.Add(_mapper.Map<VesselPositionTracker.Domain.Entities.Vessel> (request));
             return result;
         }
     }

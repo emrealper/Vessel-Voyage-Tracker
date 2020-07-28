@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace TaskManagementApp.Application.Common.Behaviors
+namespace VesselPositionTracker.Application.Common.Behaviors
 {
     public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
     {

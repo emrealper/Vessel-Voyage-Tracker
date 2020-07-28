@@ -14,6 +14,7 @@ using VesselPositionTracker.Application.Tasks.Queries;
 
 using VesselPositionTracker.Application.Services.Fleet.Dto;
 using VesselPositionTracker.Application.Services.Fleet.ViewModel;
+using VesselPositionTracker.Application.Services.Queries;
 
 namespace VesselPositionTracker.Application.Services.Fleet.Handlers
 {

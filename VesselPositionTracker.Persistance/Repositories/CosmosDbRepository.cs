@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
 using Newtonsoft.Json;
-//using TodoService.Core.Exceptions;
+
+using VesselPositionTracker.Application.Common.Exceptions;
+
 using VesselPositionTracker.Application.Common.Interfaces;
 using VesselPositionTracker.Domain.Common;
 using VesselPositionTracker.Domain.Entities;
@@ -42,7 +44,7 @@ namespace VesselPositionTracker.Persistance.Repositories
             {
                 if (e.StatusCode == HttpStatusCode.NotFound)
                 {
-                    //throw new EntityNotFoundException();
+                    throw new NotFoundException(CollectionName,id);
                 }
 
                 throw;
@@ -52,24 +54,14 @@ namespace VesselPositionTracker.Persistance.Repositories
 
         public async Task<IEnumerable<VesselHistory>> ReadByQueryAsync(string query)
         {
-            try
-            {
+         
                 var cosmosDbClient = _cosmosDbClientFactory.GetClient(CollectionName);
                 return await cosmosDbClient.ReadDocumentsByQueryAsync(query);
 
                
 
             
-            }
-            catch (DocumentClientException e)
-            {
-                if (e.StatusCode == HttpStatusCode.NotFound)
-                {
-                    //throw new EntityNotFoundException();
-                }
-
-                throw;
-            }
+        
         }
 
 
@@ -91,7 +83,7 @@ namespace VesselPositionTracker.Persistance.Repositories
             {
                 if (e.StatusCode == HttpStatusCode.Conflict)
                 {
-                    //throw new EntityAlreadyExistsException();
+                    throw new AlreadyExistsException(CollectionName,entity.Id);
                 }
 
                 throw;
@@ -101,8 +93,7 @@ namespace VesselPositionTracker.Persistance.Repositories
 
         public async Task<int> BatchUploadAsync(List<ICosmosEntity> entities)
         {
-            try
-            {
+         
                 
                 var cosmosDbClient = _cosmosDbClientFactory.GetClient(CollectionName);
 
@@ -111,16 +102,7 @@ namespace VesselPositionTracker.Persistance.Repositories
                 var result = await cosmosDbClient.BathchUpload(entities);
 
                 return result;
-            }
-            catch (DocumentClientException e)
-            {
-                if (e.StatusCode == HttpStatusCode.Conflict)
-                {
-                    //throw new EntityAlreadyExistsException();
-                }
-
-                throw;
-            }
+        
         }
 
 
@@ -136,7 +118,7 @@ namespace VesselPositionTracker.Persistance.Repositories
             {
                 if (e.StatusCode == HttpStatusCode.NotFound)
                 {
-                    //throw new EntityNotFoundException();
+                   throw new NotFoundException(CollectionName,entity.Id);
                 }
 
                 throw;
@@ -157,7 +139,7 @@ namespace VesselPositionTracker.Persistance.Repositories
             {
                 if (e.StatusCode == HttpStatusCode.NotFound)
                 {
-                    //throw new EntityNotFoundException();
+                    throw new NotFoundException(CollectionName, entity.Id);
                 }
 
                 throw;

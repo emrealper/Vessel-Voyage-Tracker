@@ -15,6 +15,7 @@ using VesselPositionTracker.Api.Extensions;
 using VesselPositionTracker.Api.Features.Authentication;
 using VesselPositionTracker.Api.Features.Authorization;
 using VesselPositionTracker.Api.Features.Swagger;
+using VesselPositionTracker.Api.Middleware;
 using VesselPositionTracker.Api.Options;
 using VesselPositionTracker.Application;
 using VesselPositionTracker.Infrastructure;
@@ -116,7 +117,7 @@ namespace VesselPositionTracker.Api
             app.UseRouting();
 
 
-            //app.UseCustomExceptionHandler();
+            app.UseCustomExceptionHandler();
 
 
             app.UseSwagger();

@@ -4,7 +4,7 @@ using FluentValidation;
 using MediatR;
 
 using Microsoft.Extensions.DependencyInjection;
-using TaskManagementApp.Application.Common.Behaviors;
+using VesselPositionTracker.Application.Common.Behaviors;
 
 namespace VesselPositionTracker.Application
 {

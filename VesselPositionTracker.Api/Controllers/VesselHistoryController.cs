@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EcoDesignAPI.Application.Services.Product.Handlers;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using VesselPositionTracker.Api.Features.Authorization;
+using VesselPositionTracker.Application.Services.VesselHistory.Queries;
 using VesselPositionTracker.Application.Services.VesselHistory.ViewModel;
-using VesselPositionTracker.Application.Tasks.Queries;
+
 
 namespace VesselPositionTracker.Api.Controllers
 {
