@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using NLog.Extensions.Logging;
 using System.Linq;
 using VesselPositionTracker.Api.Extensions;
 using VesselPositionTracker.Api.Features.Authentication;
@@ -19,6 +20,7 @@ using VesselPositionTracker.Api.Middleware;
 using VesselPositionTracker.Api.Options;
 using VesselPositionTracker.Application;
 using VesselPositionTracker.Infrastructure;
+
 
 namespace VesselPositionTracker.Api
 {
@@ -55,6 +57,9 @@ namespace VesselPositionTracker.Api
                 options.AddPolicy(Policies.OnlyThirdParties, policy => policy.Requirements.Add(new OnlyThirdPartiesRequirement()));
             });
 
+       
+
+
 
             services.AddSingleton<IAuthorizationHandler, OnlyThirdPartiesAuthorizationHandler>();
 
@@ -70,8 +75,12 @@ namespace VesselPositionTracker.Api
             services.AddInfrastructure();
 
 
-
-
+            services.AddLogging(loggingBuilder =>
+            {
+                loggingBuilder.ClearProviders();
+                loggingBuilder.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
+                loggingBuilder.AddNLog();
+            });
 
 
 

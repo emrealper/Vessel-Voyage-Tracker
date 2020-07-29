@@ -19,6 +19,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    
+    
     <ProjectReference Include="..\VesselPositionTracker.Application\VesselPositionTracker.Application.csproj" />
     <ProjectReference Include="..\VesselPositionTracker.Persistance\VesselPositionTracker.Persistance.csproj" />
   </ItemGroup>
