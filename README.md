@@ -8,3 +8,5 @@ The sample request shown below represents the movement records of specific vesse
 curl -X GET "http://20.52.55.230:5000/api/VesselHistory/GetAll/241486004/2017-07-12T10%3A06%3A01/2017-07-12T10%3A30%3A01" -H "accept: text/plain" -H "VesselPositionTracker-Api-Key: 1234"
 
 
+
+![movements of vessels](https://repository-images.githubusercontent.com/282163349/cfba2600-cdd6-11ea-8988-c5fd78ab7152)
